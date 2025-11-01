@@ -27,13 +27,25 @@ def main():
     preprocessor = DataPreprocessor()
     data_path = 'DATASET/disaster_multimodal_dataset_10000_balanced.csv'
     
-    df = preprocessor.load_data(data_path)
-    print(f"  ✓ Loaded {len(df)} records")
+    try:
+        df = preprocessor.load_data(data_path)
+        print(f"  ✓ Loaded {len(df)} records")
+    except FileNotFoundError:
+        print(f"  ✗ Error: Dataset file not found at {data_path}")
+        print(f"  Please ensure the dataset is available in the DATASET directory.")
+        return
+    except Exception as e:
+        print(f"  ✗ Error loading dataset: {e}")
+        return
     
-    X, y = preprocessor.preprocess_features(df)
-    X_normalized = preprocessor.normalize_features(X)
-    print(f"  ✓ Preprocessed features: {X_normalized.shape}")
-    print(f"  ✓ Disaster types detected: {len(set(y))}")
+    try:
+        X, y = preprocessor.preprocess_features(df)
+        X_normalized = preprocessor.normalize_features(X)
+        print(f"  ✓ Preprocessed features: {X_normalized.shape}")
+        print(f"  ✓ Disaster types detected: {len(set(y))}")
+    except Exception as e:
+        print(f"  ✗ Error preprocessing data: {e}")
+        return
     
     # Step 2: Train disaster classifier
     print("\n[2/5] Training disaster classification model...")
