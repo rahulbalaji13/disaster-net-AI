@@ -61,6 +61,29 @@ Visual change detection, coupled with environmental anomaly analysis, supports f
 •	Adaptive, Collaborative Intelligence
 Leveraging swarm and distributed learning offers robustness, scalability, and privacy-aware adaptation—even under heterogeneous and dynamic field conditions.
 
+# Implementation
+
+This repository includes a complete working implementation of the swarm-enabled edge intelligence system. See [IMPLEMENTATION.md](IMPLEMENTATION.md) for details.
+
+## Quick Start
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the demo
+python demo.py
+```
+
+## Features
+
+- ✅ Disaster classification using sensor data (temperature, gas, humidity, flood levels)
+- ✅ Edge computing nodes for distributed AI processing
+- ✅ Swarm coordination with consensus-based decision making
+- ✅ Support for multiple disaster types (fire, flood, earthquake, building collapse, etc.)
+- ✅ Lightweight models suitable for IoT deployment
+- ✅ Comprehensive unit tests (25 tests)
+
 # Owner
 
 Made with ❤️ by Rahul Balaji
